@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'todo';
+  public title = 'To do, or not to do';
+  public today = Date.now();
 }

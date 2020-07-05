@@ -1,0 +1,67 @@
+<div mat-dialog-title class="dialog-title">
+  <h1>{{ dialogTitle }}</h1> 
+</div>
+
+<div mat-dialog-content class="dialog-content">
+
+  <form [formGroup]="form" autocomplete="off" novalidate>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nazwa zadania</mat-label>
+      <input matInput
+        placeholder="Np. wykonać zadanie rekrutacyjne"
+        formControlName="name"
+        class="task-title"
+        required>
+      <mat-error>Nazwa zadania jest wymagana</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status" id="status">
+          <mat-option [value]="statusChoices.TODO">Do zrobienia</mat-option>
+          <mat-option [value]="statusChoices.ONGOING">W trakcie</mat-option>
+          <mat-option [value]="statusChoices.DONE">Wykonane</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Opis zadania</mat-label>
+      <textarea matInput
+        formControlName="description"
+        class="description-area">
+      </textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" (click)="picker.open()">
+      <mat-label>Termin wykonania zadania</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="deadline" id="deadline">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Priorytet</mat-label>
+      <mat-select formControlName="priority" id="priority">
+          <mat-option [value]="priorityChoices.LOW">Mało ważne</mat-option>
+          <mat-option [value]="priorityChoices.MEDIUM">Średnio ważne</mat-option>
+          <mat-option [value]="priorityChoices.HIGH">Bardzo ważne</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+  </form>
+
+</div>
+
+<div mat-dialog-actions class="dialog-actions">
+  <button
+    class="mat-raised-button"
+    mat-dialog-close
+  >Anuluj</button>
+  <button
+    class="mat-raised-button mat-primary"
+    (click)="save()"
+    [disabled]="!form.valid || !form.dirty"
+    [mat-dialog-close]="true"
+  >Zapisz</button>
+</div>

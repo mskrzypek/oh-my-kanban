@@ -1,1 +1,89 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+
+    --color-purple-heart: #673AB7;
+    --color-purple-heart-light: #883AB7;
+    --color-red-orange: #F44336;
+    --color-night-rider: #343434;
+    --color-zambezi: #5D5D5D;
+    --color-nobel: #979797;
+    --color-very-light-grey: #C9C9C9;
+    --color-white-smoke: #F1F1F1;
+    --color-white: #FFF;
+    
+    --fontFamily: Roboto, "Helvetica Neue", sans-serif;
+    --background-color: var(--color-white-smoke);
+    --box-shadow-color: #{rgb(#343434, .1)};
+
+}
+
+html, body {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: var(--fontFamily);
+    color: var(--color-night-rider);
+    background-color: var(--background-color);
+}
+
+.task-list-add {
+    .mat-form-field {
+        width: 100%;
+    }
+    .mat-form-field-infix {
+        width: auto;
+    }
+    .mat-form-field-wrapper {
+        padding-bottom: 0;
+    }
+}
+
+.task-actions-menu {
+    .mat-menu-item {
+        padding-right: 32px;
+    }
+}
+
+.cdk-overlay-pane {
+    margin: 0 .5rem;
+    max-width: none!important;
+}
+
+.mat-dialog-container {
+    mat-form-field {
+        width: 100%;
+    }
+    .dialog-title {
+        margin: 0 -24px 24px;
+        padding: 0 24px;
+        border-bottom: 1px solid var(--color-very-light-grey);
+    }
+    .dialog-actions {
+        display: flex;
+        justify-content: space-between;
+        margin: 12px -24px -12px;
+        padding: 12px 24px 0;
+        border-top: 1px solid var(--color-very-light-grey);
+    }
+    .mat-form-field-appearance-outline .mat-form-field-suffix {
+        top: .7em; // hotfix for wierd material-ui input icon position
+    }
+}
+
+@media (min-width: 768px) {
+    .cdk-overlay-pane {
+        margin: 0 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .cdk-overlay-pane {
+        max-width: 80vw;
+    }
+}

@@ -1,0 +1,61 @@
+.container {
+    margin: 0 auto;
+    padding: 0 .5rem;
+    max-width: 1200px;
+}
+
+.header {
+    padding: 3rem 0 7rem;
+    background: linear-gradient(0deg, var(--color-purple-heart) 0%, var(--color-purple-heart-light) 100%);
+    clip-path: polygon(0% 0%, 100% 0, 100% 70%, 50% 100%, 0 70%);
+    color: var(--color-white);
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    h1 {
+        margin: 0 0 0 -.125rem; // horizontal letter align fix
+        font-size: 2rem;
+        font-weight: 300;
+    }
+    .date {
+        margin-top: .25rem;
+        font-size: .75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: .75;
+    }
+    .add-task {
+        button {
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            .icon {
+                color: var(--color-white);
+                height: 2.5rem;
+            }
+        }
+    }
+}
+main {
+    position: relative;
+}
+
+@media (min-width: 576px) {
+    .container {
+        padding: 0 1rem;
+    }
+    .header {
+        h1 {
+            font-size: 2.5rem;
+        }
+        .date {
+            margin-top: .5rem;
+        }
+        .add-task button .icon {
+            height: 3rem;
+        }
+    }
+}
