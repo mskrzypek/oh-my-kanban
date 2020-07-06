@@ -9,6 +9,7 @@ import { TASKS } from './task.data';
 })
 export class TaskService {
 
+  private trash: Set<number> = new Set([]); // trashed tasks' id; set is better for unique ids
   private _tasks: BehaviorSubject<object[]> = new BehaviorSubject([]);
   public readonly tasks: Observable<object[]> = this._tasks.asObservable();
 
@@ -32,7 +33,10 @@ export class TaskService {
 
   public getObjects(): Observable<Task[]> {
     return this.tasks.pipe(
-      map((data: any[]) => data.map(
+      map((data: any[]) => data.filter(
+          // do not return objects marked for delete
+          (item: any) => ! this.trash.has(item.id)
+        ).map(
           // convert objects to Task instances
           (item: any) => this.adapter.adapt(item)
         ).sort(this.compareTaskGravity)
@@ -69,6 +73,20 @@ export class TaskService {
     this._tasks.next(
       this._tasks.getValue().filter((t: any) => t.id !== task.id)
     );
+  }
+
+  public detachObject(task: Task): void {
+    // add task id to trash
+    this.trash.add(task.id);
+    // force emit change for tasks observers
+    return this._tasks.next(this._tasks.getValue());
+  }
+
+  public attachObject(task: Task): void {
+    // remove task id from trash
+    this.trash.delete(task.id);
+    // force emit change for tasks observers
+    return this._tasks.next(this._tasks.getValue());
   }
 
 }
