@@ -12,6 +12,8 @@ import { BoardComponent } from './board/board.component';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 import { TruncatePipe } from './core/pipes';
 
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -54,6 +56,9 @@ import {
       provide: LOCALE_ID,
       useValue: 'pl-PL'
     }
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class TodoModule {}

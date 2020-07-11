@@ -33,7 +33,7 @@ export class TaskDialogComponent implements OnInit {
       // https://stackoverflow.com/a/58644073/5612001
       const nonWhiteSpaceRegExp: RegExp = new RegExp('\\S');
 
-      this.form = formBuilder.group({
+      this.form = this.formBuilder.group({
         name: [this.task?.name, [Validators.required, Validators.pattern(nonWhiteSpaceRegExp)]],
         status: [(this.task) ? this.task.status : this.statusChoices.TODO],
         description: [this.task?.description],
