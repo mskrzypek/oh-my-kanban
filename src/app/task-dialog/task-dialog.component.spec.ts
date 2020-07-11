@@ -1,12 +1,13 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { DebugElement, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
@@ -40,6 +41,10 @@ describe('TaskDialogComponent', () => {
       declarations: [ TaskDialogComponent ],
       providers: [
         {
+          provide: MatDialogRef,
+          useValue: {}
+        },
+        {
           provide: MAT_DIALOG_DATA,
           useValue: {}
         }
@@ -60,4 +65,54 @@ describe('TaskDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should not add new task when name empty or filled with whitespaces)', () => {
+
+    // given
+    spyOn(component, 'save');
+    const button: DebugElement = fixture.debugElement.query(By.css('button.mat-primary'));
+
+    // when
+    [
+      '', // empty
+      ' ', // space
+      '	', // tab
+      ' 	' // space and tab
+    ].forEach(value => {
+      component.form.controls['name'].setValue(value);
+      component.form.markAsDirty();
+
+      fixture.detectChanges();
+
+      button.nativeElement.dispatchEvent(
+        new MouseEvent('click')
+      );
+    });
+
+    // then
+    expect(component.save).not.toHaveBeenCalled();
+
+  });
+
+  it('should add new task when name is filled', () => {
+
+    // given
+    spyOn(component, 'save');
+    const button: DebugElement = fixture.debugElement.query(By.css('button.mat-primary'));
+
+    // when
+    component.form.controls['name'].setValue('Nowe testowe zadanie');
+    component.form.markAsDirty();
+
+    fixture.detectChanges();
+
+    button.nativeElement.dispatchEvent(
+      new MouseEvent('click')
+    );
+
+    // then
+    expect(component.save).toHaveBeenCalled();
+
+  });
+
 });

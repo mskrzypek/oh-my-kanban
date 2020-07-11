@@ -1,10 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Task } from '../core/task.model';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { Task, TaskStatus, TaskPriority } from '../core/task.model';
 import { TaskService } from '../core/task.service';
-import { TaskStatus, TaskPriority } from '../core/task.model';
 
 @Component({
   selector: 'app-task-dialog',
@@ -12,7 +13,7 @@ import { TaskStatus, TaskPriority } from '../core/task.model';
 })
 export class TaskDialogComponent implements OnInit {
 
-  private task: Task;
+  public task: Task;
   public dialogTitle: string;
   public form: FormGroup;
   public statusChoices: typeof TaskStatus;
@@ -21,6 +22,7 @@ export class TaskDialogComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<TaskDialogComponent>,
     private snackBar: MatSnackBar,
     private taskService: TaskService
   ) {
@@ -46,6 +48,7 @@ export class TaskDialogComponent implements OnInit {
   public ngOnInit(): void { }
 
   public save(): void {
+    console.log('save');
     if ( ! this.form.valid) {
       return;
     }
@@ -57,9 +60,11 @@ export class TaskDialogComponent implements OnInit {
       );
       this.taskService.updateObject(this.task);
       this.snackBar.open('Zadanie zostało zaktualizowane');
+      this.dialogRef.close();
     } else {
       this.taskService.createOject(this.form.value);
       this.snackBar.open('Zadanie zostało utworzone');
+      this.dialogRef.close();
     }
   }
 

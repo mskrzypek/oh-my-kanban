@@ -1,5 +1,5 @@
 <div mat-dialog-title class="dialog-title">
-  <h1>{{ dialogTitle }}</h1> 
+  <h1>{{ dialogTitle }}</h1>
 </div>
 
 <div mat-dialog-content class="dialog-content">
@@ -48,7 +48,7 @@
           <mat-option [value]="priorityChoices.HIGH">Bardzo ważne</mat-option>
       </mat-select>
     </mat-form-field>
-    
+
   </form>
 
 </div>
@@ -56,12 +56,10 @@
 <div mat-dialog-actions class="dialog-actions">
   <button
     class="mat-raised-button"
-    mat-dialog-close
   >Anuluj</button>
   <button
     class="mat-raised-button mat-primary"
     (click)="save()"
     [disabled]="!form.valid || !form.dirty"
-    [mat-dialog-close]="true"
   >Zapisz</button>
 </div>
