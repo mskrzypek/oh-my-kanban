@@ -14,3 +14,27 @@ export class TruncatePipe implements PipeTransform {
   }
 
 }
+
+@Pipe({
+  name: 'pluralize'
+})
+export class PluralPipe implements PipeTransform {
+
+  // https://typeofweb.com/odmiana-rzeczownikow-przy-liczebnikach-jezyku-polskim/
+
+  transform(
+    n: number,
+    singularNominativ: string,
+    pluralNominativ: string,
+    pluralGenitive: string
+  ): string {
+    if (n === 1) {
+       return singularNominativ;
+    } else if (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) {
+      return pluralNominativ;
+    } else {
+      return pluralGenitive;
+    }
+  }
+
+}

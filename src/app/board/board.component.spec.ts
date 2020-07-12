@@ -18,7 +18,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { TruncatePipe } from '../core/pipes';
+import { TruncatePipe, PluralPipe } from '../core/pipes';
 import { BoardComponent } from './board.component';
 
 describe('BoardComponent', () => {
@@ -46,7 +46,8 @@ describe('BoardComponent', () => {
       ],
       declarations: [
         BoardComponent,
-        TruncatePipe
+        TruncatePipe,
+        PluralPipe
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA

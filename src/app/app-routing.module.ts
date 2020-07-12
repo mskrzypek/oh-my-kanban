@@ -4,7 +4,8 @@ import { BoardComponent } from './board/board.component';
 
 
 const routes: Routes = [
-  {path: '', component: BoardComponent}
+  {path: 'tablica', component: BoardComponent},
+  {path: '', redirectTo: '/tablica', pathMatch: 'full'}
 ];
 
 @NgModule({

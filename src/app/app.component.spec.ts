@@ -20,7 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
-import { TruncatePipe } from './core/pipes';
+import { TruncatePipe, PluralPipe } from './core/pipes';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -48,7 +48,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         BoardComponent,
-        TruncatePipe
+        TruncatePipe,
+        PluralPipe
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA

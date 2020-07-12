@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
-import { TruncatePipe } from './core/pipes';
+import { TruncatePipe, PluralPipe } from './core/pipes';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatButtonModule } from '@angular/material/button';
@@ -58,14 +58,15 @@ import {
     CUSTOM_ELEMENTS_SCHEMA
   ]
 })
-export class TodoModule {}
+export class TodoModule { }
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
     TaskDialogComponent,
-    TruncatePipe
+    TruncatePipe,
+    PluralPipe
   ],
   imports: [
     BrowserModule,
