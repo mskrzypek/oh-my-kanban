@@ -1,7 +1,8 @@
 :root {
 
-    --color-purple-heart: #673AB7;
-    --color-purple-heart-light: #883AB7;
+    --color-purple-heart: #472575;
+    --color-purple-heart-light: #6441A5;
+    --color-purple-heart-dark: #39175D;
     --color-red-orange: #F44336;
     --color-night-rider: #343434;
     --color-zambezi: #5D5D5D;
@@ -30,6 +31,7 @@ body {
     font-family: var(--fontFamily);
     color: var(--color-night-rider);
     background-color: var(--background-color);
+    background: #ECE7F0;
 }
 
 .task-list-add {

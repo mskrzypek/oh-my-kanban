@@ -70,7 +70,7 @@ describe('AppComponent', () => {
 
     // given
     spyOn(component.boardComponent, 'newTaskDialog');
-    const input: DebugElement = fixture.debugElement.query(By.css('.add-task button'));
+    const input: DebugElement = fixture.debugElement.query(By.css('#addTask'));
 
     // when
     input.nativeElement.dispatchEvent(

@@ -3,19 +3,33 @@
   <header class="header">
     <div class="container">
       <div>
-        <h1>{{ title }}</h1>
-        <div class="date">{{ today | date:'fullDate' | titlecase }}</div>
-      </div>
-      <div class="add-task">
-        <button matTooltip="Utwórz zadanie" aria-label="Utwórz zadanie" (click)="boardComponent.newTaskDialog()">
-          <svg aria-hidden="true" class="icon" viewBox="0 0 512 512">
-            <path fill="currentColor" d="M384 250v12c0 6.6-5.4 12-12 12h-98v98c0 6.6-5.4 12-12 12h-12c-6.6 0-12-5.4-12-12v-98h-98c-6.6 0-12-5.4-12-12v-12c0-6.6 5.4-12 12-12h98v-98c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v98h98c6.6 0 12 5.4 12 12zm120 6c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-32 0c0-119.9-97.3-216-216-216-119.9 0-216 97.3-216 216 0 119.9 97.3 216 216 216 119.9 0 216-97.3 216-216z" />
-          </svg>
-          <!-- <mat-icon>add_circle_outline</mat-icon> // too bold icon ;) -->
-        </button>
+        <h1>
+          <a [routerLink]="">
+            <svg aria-hidden="true" viewBox="0 0 512 512">
+              <path fill="currentColor" fill-rule="evenodd" d="M80,0C44.6,0,16,28.6,16,64v384c0,35.4,28.6,64,64,64h352c35.4,0,64-28.6,64-64V64c0-35.4-28.6-64-64-64H80z M240,64c-17.7,0-32,14.3-32,32v96c0,17.7,14.3,32,32,32h32c17.7,0,32-14.3,32-32V96c0-17.7-14.3-32-32-32H240z M80,96 c0-17.7,14.3-32,32-32h32c17.7,0,32,14.3,32,32v224c0,17.7-14.3,32-32,32h-32c-17.7,0-32-14.3-32-32V96z M368,64 c-17.7,0-32,14.3-32,32v320c0,17.7,14.3,32,32,32h32c17.7,0,32-14.3,32-32V96c0-17.7-14.3-32-32-32H368z"/>
+            </svg>
+            <span>
+              {{ title }}
+            </span>
+          </a>
+        </h1>
       </div>
     </div>
   </header>
+  <nav class="nav-main">
+    <div class="container">
+      <div class="menu">
+        <a href="#">Tablica</a>
+      </div>
+      <div class="actions">
+        <button id="addTask" matTooltip="Utwórz zadanie" aria-label="Utwórz zadanie" (click)="boardComponent.newTaskDialog()">
+          <svg aria-hidden="true" viewBox="0 0 384 512">
+            <path fill="currentColor" d="M368 224H224V80c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v144H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h144v144c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V288h144c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
 
   <main class="main">
     <div class="container">

@@ -8,8 +8,7 @@ import { BoardComponent } from './board/board.component';
 })
 export class AppComponent {
 
-  public title = 'To do, or not to do';
-  public today = Date.now();
+  public title = 'Oh My Kanban!';
 
   @ViewChild(BoardComponent) boardComponent: BoardComponent;
 
