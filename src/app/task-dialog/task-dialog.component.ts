@@ -27,21 +27,21 @@ export class TaskDialogComponent implements OnInit {
     private taskService: TaskService
   ) {
 
-      this.dialogTitle = data.title;
-      this.task = data.task;
-      this.statusChoices = TaskStatus;
-      this.priorityChoices = TaskPriority;
+    this.dialogTitle = data.title;
+    this.task = data.task;
+    this.statusChoices = TaskStatus;
+    this.priorityChoices = TaskPriority;
 
-      // https://stackoverflow.com/a/58644073/5612001
-      const nonWhiteSpaceRegExp: RegExp = new RegExp('\\S');
+    // https://stackoverflow.com/a/58644073/5612001
+    const nonWhiteSpaceRegExp: RegExp = new RegExp('\\S');
 
-      this.form = this.formBuilder.group({
-        name: [this.task?.name, [Validators.required, Validators.pattern(nonWhiteSpaceRegExp)]],
-        status: [(this.task) ? this.task.status : this.statusChoices.TODO],
-        description: [this.task?.description],
-        deadline: [this.task?.deadline],
-        priority: [(this.task) ? this.task.priority : this.priorityChoices.MEDIUM]
-      });
+    this.form = this.formBuilder.group({
+      name: [this.task?.name, [Validators.required, Validators.pattern(nonWhiteSpaceRegExp)]],
+      status: [(this.task) ? this.task.status : this.statusChoices.TODO],
+      description: [this.task?.description],
+      deadline: [this.task?.deadline],
+      priority: [(this.task) ? this.task.priority : this.priorityChoices.MEDIUM]
+    });
 
   }
 

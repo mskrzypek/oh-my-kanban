@@ -1,9 +1,9 @@
 export const TASKS: Array<object> = [
   {
     id: 1,
-    name: 'Zrozumieć Angulara',
+    name: 'Przeczytać dokumentację Angulara',
     status: 1,
-    description: 'Dokumentacja: https://angular.io/docs',
+    description: 'Dokumentacja on-line: https://angular.io/docs',
     deadline: '2020-07-31',
     priority: 0
   },
@@ -30,9 +30,9 @@ export const TASKS: Array<object> = [
   },
   {
     id: 5,
-    name: 'Napisać aplikację Todo',
+    name: 'Napisać aplikację To-do',
     status: 2,
-    description: 'Wykorzystując framework Angular należy wykonać aplikacje typu SPA (Single Page Application) służącą do definiowania oraz edytowania utworzonych wcześniej zadań do wykonania (to-do list) z podglądem grupującym zadania ze względu na 3 następujące statusy: Do zrobienia, W toku, Gotowe.',
+    description: 'Wykorzystując framework Angular stworzyć aplikację służącą do definiowania oraz edytowania utworzonych wcześniej zadań do wykonania z podglądem grupującym zadania ze względu na statusy (do zrobienia, w toku, gotowe), terminami, priorytetami i zmianą statusu zadań poprzez przenoszenie ich metodą drag and drop.',
     deadline: '',
     priority: 1
   },

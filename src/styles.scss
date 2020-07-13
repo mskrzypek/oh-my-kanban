@@ -5,17 +5,18 @@
   --color-purple-heart: #472575;
   --color-purple-heart-light: #6441A5;
   --color-purple-heart-dark: #39175D;
+  --color-purple-smoke: #E2DAE8;
+  --color-purple-smoke-light: #F0EDF2;
   --color-red-orange: #F44336;
   --color-night-rider: #343434;
   --color-zambezi: #5D5D5D;
   --color-nobel: #979797;
   --color-very-light-grey: #C9C9C9;
-  --color-white-smoke: #F1F1F1;
   --color-white: #FFF;
+  --color-black: #000;
 
   --fontFamily: Roboto, "Helvetica Neue", sans-serif;
   --background-color: var(--color-white-smoke);
-  --box-shadow-color: #{rgb(#343434, .1)};
 
 }
 
@@ -32,7 +33,7 @@ body {
   margin: 0;
   font-family: var(--fontFamily);
   color: var(--color-night-rider);
-  background-color: #F0EDF2;
+  background-color: var(--color-purple-smoke-light);
 }
 
 .task-list-add {

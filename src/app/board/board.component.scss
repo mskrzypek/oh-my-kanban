@@ -5,14 +5,14 @@
   .list {
     flex: 1 0 0;
     margin: rem(16px) 0;
-    border: 1px solid #E2DAE8;
+    border: 1px solid var(--color-purple-smoke);
     border-radius: rem(5px);
     box-shadow: 0 rem(2px) rem(2px) rgba(#000, .03), 0 rem(1px) rem(5px) rgba(#000, .02);
     overflow: hidden;
     .header {
       display: flex;
       padding: rem(18px) rem(14px);
-      background: #FFF;
+      background: var(--color-white);
       align-items: center;
       .title {
         flex: 1;
@@ -52,7 +52,7 @@
   background: var(--color-white);
   box-shadow: 0 rem(2px) rem(2px) rgba(#000, .03), 0 rem(1px) rem(5px) rgba(#000, .02);
   border-radius: rem(5px);
-  border: 1px solid #E2DAE8;
+  border: 1px solid var(--color-purple-smoke);
   transition: box-shadow .2s;
   &:hover {
     box-shadow: 0 rem(2px) rem(2px) rgba(#000, .1), 0 rem(1px) rem(5px) rgba(#000, .09);
@@ -103,9 +103,9 @@
       .icon {
         margin-right: rem(4px);
         display: inline-block;
-        font-size: inherit;
         height: 1em;
         overflow: visible;
+        font-size: inherit;
         vertical-align: -0.125em;
       }
       .deadline-label {
@@ -135,7 +135,7 @@
       border-radius: 0;
       border-width: 0 0 0 1px;
       &:last-child {
-        border-right: 1px solid #E2DAE8;
+        border-right: 1px solid var(--color-purple-smoke);
       }
     }
   }

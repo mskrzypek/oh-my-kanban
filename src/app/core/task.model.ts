@@ -14,18 +14,18 @@ export enum TaskPriority {
 }
 
 export class Task {
-    constructor(
-        public id: number,
-        public name: string,
-        public status: number = TaskStatus.TODO,
-        public description: string = null,
-        public deadline: Date = null,
-        public priority: number = TaskPriority.MEDIUM
-    ) { }
+  constructor(
+    public id: number,
+    public name: string,
+    public status: number = TaskStatus.TODO,
+    public description: string = null,
+    public deadline: Date = null,
+    public priority: number = TaskPriority.MEDIUM
+  ) { }
 }
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class TaskAdapter implements Adapter<Task> {
 
